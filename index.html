@@ -13,9 +13,10 @@
 </head>
 <body>
   <div id="app"></div>
-  <nav>
+  <!-- <nav>
     <a href="#/TOP_NavigationBar/01_Preface">中文</a>
-  </nav>
+    <a href="#/Compiler/链接.md">中文</a>
+  </nav> -->
   <script>
     window.$docsify = {
       repo: 'https://github.com/yilingqinghan/AI-System-Documents/', 
@@ -27,12 +28,6 @@
       subMaxLevel: 5,
       auto2top: true,
       maxLevel: 5,
-      search: {
-        paths: 'auto',
-        placeholder: 'Type to search',
-        noData: 'No Results!',
-        depth: 6
-      },
       count:{
         countable:true,
         fontsize:'0.9em',
@@ -41,10 +36,10 @@
       },
       search: 'auto', // 默认值
       search : [
-        '/',            // => /README.md
+        <!-- '/',            // => /README.md
         '/guide',       // => /guide.md
         '/get-started', // => /get-started.md
-        '/zh-cn/',      // => /zh-cn/README.md
+        '/zh-cn/',      // => /zh-cn/README.md -->
       ],
 
       // 完整配置参数
@@ -87,6 +82,7 @@
         // 匹配到的字符串将被用来识别索引
         pathNamespaces: /^(\/(zh-cn|ru-ru))?(\/(v1|v2))?/
       },
+      smoothScroll: false
       
     }
   </script>
@@ -120,7 +116,6 @@
       distractionFreeMode: false
     })
   </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script
