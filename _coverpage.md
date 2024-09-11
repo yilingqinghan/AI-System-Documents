@@ -1,4 +1,3 @@
-![](_media/1.jpg)
 
 
 > JNU
