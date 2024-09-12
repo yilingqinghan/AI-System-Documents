@@ -10,6 +10,34 @@
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/buble.css"> -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/LIGMATV/docsify-theme-github/github.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <style>
+    @font-face {
+      font-family: 'fzxbsjt';
+      src: url('assets/fonts/方正小标宋简体.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Merienda';
+      src: url('assets/fonts/Merienda-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'OS';
+      src: url('assets/fonts/OldStandard-Regular.ttf') format('truetype');
+    }
+  </style>
+  <style>
+    body {
+      font-family: 'Georgia', sans-serif; /* 默认字体 */
+    }
+
+    /* 切换字体时使用的 class */
+    .font-serif {
+      font-family: 'Georgia', serif;
+    }
+
+    .font-monospace {
+      font-family: 'Courier New', monospace;
+    }
+  </style>
 </head>
 <body>
   <div id="app"></div>
@@ -82,7 +110,15 @@
         // 匹配到的字符串将被用来识别索引
         pathNamespaces: /^(\/(zh-cn|ru-ru))?(\/(v1|v2))?/
       },
-      smoothScroll: false
+      smoothScroll: false,
+      markdown: {
+        renderer: {
+          paragraph: function(text) {
+            // 替换 ==文本== 为带背景色的高亮文本
+            return text.replace(/==(.+?)==/g, '<span style="background-color:yellow;">$1</span>');
+          }
+        }
+      }
       
     }
   </script>
@@ -118,6 +154,29 @@
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+  <script>
+    // 切换字体的函数
+    function switchFont(fontClass) {
+      document.body.classList.remove('font-serif', 'font-monospace'); // 移除所有字体
+      if (fontClass) {
+        document.body.classList.add(fontClass); // 根据选择的字体添加
+      }
+    }
+
+    // 页面加载后，保持用户上次选择的字体
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedFont = localStorage.getItem('selectedFont');
+      if (savedFont) {
+        switchFont(savedFont);
+      }
+    });
+
+    // 切换字体并保存到本地存储
+    function handleFontSwitch(fontClass) {
+      switchFont(fontClass);
+      localStorage.setItem('selectedFont', fontClass); // 保存选择到 localStorage
+    }
+  </script>
 </body>
 </html>
