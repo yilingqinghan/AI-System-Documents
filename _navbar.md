@@ -1,3 +1,4 @@
+* 论开源精神
 * 编译器
   * [项目一](/01_Compiler/链接.md)
   * [项目二](/01_Compiler/BOLT.md)
@@ -15,9 +16,9 @@
   * [项目二](/01_Compiler/BOLT.md)
   * [项目三](/01_Compiler/JIT.md)
 * 推荐资源
-  * [项目一](/01_Compiler/链接.md)
-  * [项目二](/01_Compiler/BOLT.md)
-  * [项目三](/01_Compiler/JIT.md)
+  * [书籍](/01_Compiler/链接.md)
+  * [开源课程](/01_Compiler/BOLT.md)
+  * [工具网站](/01_Compiler/JIT.md)
 * 心得
   * [项目一](/01_Compiler/链接.md)
   * [项目二](/01_Compiler/BOLT.md)
