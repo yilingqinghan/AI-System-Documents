@@ -21,22 +21,10 @@
   ``` 
   -->
   <style>
-    @font-face {
-      font-family: 'fzxbsjt';
-      src: url('assets/fonts/方正小标宋简体.ttf') format('truetype');
-    }
-    @font-face {
-      font-family: 'Merienda';
-      src: url('assets/fonts/Merienda-Regular.ttf') format('truetype');
-    }
-    @font-face {
-      font-family: 'OS';
-      src: url('assets/fonts/OldStandard-Regular.ttf') format('truetype');
-    }
-  </style>
-  <style>
     body {
       font-family: 'Georgia', sans-serif; /* 默认字体 */
+      font-size: 18px; /* 调整全局字体大小，可以根据需求修改数值 */
+      line-height: 1.6; /* 增加行高以提升可读性 */
     }
 
     /* 切换字体时使用的 class */
@@ -124,11 +112,56 @@
       markdown: {
         renderer: {
           paragraph: function(text) {
-            // 替换 ==文本== 为带背景色的高亮文本
-            return text.replace(/==(.+?)==/g, '<span style="background-color:yellow;">$1</span>');
+            // 处理 ==文本== 替换为高亮
+            text = text.replace(/==(.+?)==/g, '<span style="background-color:yellow;">$1</span>');
+            
+                // 处理 @@内容@@ 替换为带有定理框和标题栏的 div（蓝色主题）
+            text = text.replace(/@@(.*?)@@/g, function(match, p1) {
+              const parts = p1.split('::');
+              const title = parts[0] ? parts[0].trim() : '定理';
+              const content = parts[1] ? parts[1].trim() : p1;
+
+              return `
+                <div class="theorem-box">
+                  <div class="theorem-title">${title}</div>
+                  <div class="theorem-content">${content}</div>
+                </div>
+              `;
+            });
+
+            // 处理 ^^内容^^ 替换为带有定理框和标题栏的 div（橙色主题）
+            text = text.replace(/\^\^(.*?)\^\^/g, function(match, p1) {
+              const parts = p1.split('::');
+              const title = parts[0] ? parts[0].trim() : '定理';
+              const content = parts[1] ? parts[1].trim() : p1;
+
+              return `
+                <div class="theorem-box-alt">
+                  <div class="theorem-title-alt">${title}</div>
+                  <div class="theorem-content-alt">${content}</div>
+                </div>
+              `;
+            });
+
+            text = text.replace(/%%(.*?)%%/g, function(match, p1) {
+              const parts = p1.split('::');
+              const title = parts[0] ? parts[0].trim() : '问题';
+              const content = parts[1] ? parts[1].trim() : p1;
+    
+              return `
+                <div class="problem-box">
+                  <div class="problem-icon">📝</div>
+                  <div class="problem-title">${title}</div>
+                  <div class="problem-content">${content}</div>
+                </div>
+              `;
+            });
+    
+            return text;
           }
         }
       }, 
+      
       progress: {
         position: "top",
         color: "var(--theme-color,#42b983)",

@@ -729,31 +729,58 @@ body {
   color: var(--theme-color, #42b983);
   text-underline-offset: 25%;
 }
-.markdown-section h1:first-child {
-  font-size: 3rem;
-}
-.markdown-section h1 {
-  font-size: 2rem;
-  margin: 0 0 1rem;
-}
-.markdown-section h2 {
-  font-size: 1.75rem;
-  margin: 45px 0 0.8rem;
-}
-.markdown-section h3 {
-  font-size: 1.5rem;
-  margin: 40px 0 0.6rem;
-}
-.markdown-section h4 {
-  font-size: 1.25rem;
-}
-.markdown-section h5 {
-  font-size: 1rem;
-}
+/* 设置统一的标题颜色 */
+.markdown-section h1, 
+.markdown-section h2, 
+.markdown-section h3, 
+.markdown-section h4, 
+.markdown-section h5, 
 .markdown-section h6 {
-  color: #777;
-  font-size: 1rem;
+  color: #3A6BA5; /* 这个颜色与你图片中的标题颜色一致 */
+  font-family: "Times New Roman", serif; /* 可以根据实际需求选择字体 */
 }
+
+/* 一级标题居中且突出 */
+.markdown-section h1 {
+  font-size: 2.8rem; /* 适中的大标题字体 */
+  text-align: center; /* 居中显示 */
+  font-weight: bold; /* 加粗 */
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #3A6BA5; /* 添加底部边框，突出标题 */
+  padding-bottom: 0.5rem;
+}
+
+/* 二级标题以及其他标题的大小和风格调整 */
+.markdown-section h2 {
+  font-size: 2rem;
+  margin: 40px 0 0.8rem;
+  border-left: 5px solid #2980b9;  /* 增加左侧边框 */
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.markdown-section h3 {
+  font-size: 1.75rem;
+  margin: 35px 0 0.6rem;
+  font-weight: bold;
+}
+
+.markdown-section h4 {
+  font-size: 1.5rem;
+  margin: 30px 0 0.5rem;
+}
+
+.markdown-section h5 {
+  font-size: 1.25rem;
+  margin: 25px 0 0.4rem;
+}
+
+.markdown-section h6 {
+  font-size: 1.1rem;
+  margin: 20px 0 0.3rem;
+}
+
 .markdown-section figure,
 .markdown-section p {
   margin: 1.2em 0;
@@ -787,7 +814,7 @@ body {
 .markdown-section code,
 .markdown-section pre,
 .markdown-section output::after {
-  font-family: monospace;
+  font-family: Consolas;
 }
 .markdown-section code,
 .markdown-section pre {
@@ -826,7 +853,7 @@ body {
 }
 .markdown-section pre > code {
   color: #000000;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   padding: 16px 0;
   line-height: inherit;
   margin: 0 2px;
@@ -952,4 +979,114 @@ code .token {
   min-height: 1.5rem;
   position: relative;
   left: auto;
+}
+
+@font-face {
+  font-family: 'fzxbsjt';
+  src: url('assets/fonts/方正小标宋简体.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Merienda';
+  src: url('assets/fonts/Merienda-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'OS';
+  src: url('assets/fonts/OldStandard-Regular.ttf') format('truetype');
+}
+/* 代码块的外观样式 */
+/* 更具层次感的代码块外观，增加阴影 */
+pre {
+box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+overflow: auto; /* 当代码块内容超出时，显示滚动条 */
+padding: 10px 20px;
+font-size: 20px;
+background-color: #f0f0f0;
+border-radius: 6px;
+}
+
+/* 定理框的基本样式（蓝色主题） */
+.theorem-box {
+border: 2px solid #6abfef;
+padding: 10px;
+background-color: #f0f8ff;
+border-radius: 10px;
+margin: 20px 0;
+position: relative;
+padding-top: 40px;
+}
+
+/* 标题栏的样式（蓝色主题） */
+.theorem-title {
+background-color: #6abfef;
+color: white;
+padding: 4px 15px;
+font-size: 1em;
+font-weight: bold;
+position: absolute;
+top: -20px;
+left: 20px;
+}
+
+/* 定理内容的样式 */
+.theorem-content {
+padding: 6px;
+padding-top: 0;
+font-family: "KaiTi", "楷体-简", "楷体", serif;
+}
+
+/* 定理框的基本样式（橙色主题） */
+.theorem-box-alt {
+border: 2px solid #f08c34;
+padding: 10px;
+background-color: #fdf5e6;
+border-radius: 10px;
+margin: 20px 0;
+position: relative;
+padding-top: 40px;
+}
+
+/* 标题栏的样式（橙色主题） */
+.theorem-title-alt {
+background-color: #f08c34;
+color: white;
+padding: 4px 15px;
+font-size: 1em;
+font-weight: bold;
+position: absolute;
+top: -20px;
+left: 20px;
+}
+
+/* 定理内容的样式（橙色主题） */
+.theorem-content-alt {
+padding: 6px;
+padding-top: 0;
+font-family: "KaiTi", "楷体-简", "楷体", serif;
+}
+
+.problem-box {
+padding: 10px;
+border-radius: 10px;
+margin: 20px 0;
+display: flex;
+align-items: center;
+}
+
+.problem-icon {
+font-size: 1.5em;
+color: #ee82ee;
+margin-right: 10px;
+}
+
+.problem-title {
+color: #ee82ee;
+font-weight: bold;
+font-size: 1.2em;
+}
+
+.problem-content {
+color: #606060;
+padding-left: 10px;
+font-weight: bold;
+font-family: "KaiTi", "楷体-简", "楷体", serif;
 }
