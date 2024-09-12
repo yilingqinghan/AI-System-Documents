@@ -8,8 +8,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css"> -->
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/buble.css"> -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/LIGMATV/docsify-theme-github/github.css">
+  <link rel="stylesheet" href="assets/css/rainbow.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/AntHubTC/docsify-xmind@1.0/example/dist/index.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-breadcrumb@latest/dist/breadcrumb.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <!-- 支持固定导航栏 -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/LIGMATV/docsify-navbar-fixed/navbar-fixed.css"> -->
+  <!-- 使用xmind：
+  ```xmind preview
+    ./../example/demo.xmind
+  ``` 
+  -->
   <style>
     @font-face {
       font-family: 'fzxbsjt';
@@ -64,10 +74,10 @@
       },
       search: 'auto', // 默认值
       search : [
-        <!-- '/',            // => /README.md
+        '/',            // => /README.md
         '/guide',       // => /guide.md
         '/get-started', // => /get-started.md
-        '/zh-cn/',      // => /zh-cn/README.md -->
+        '/zh-cn/',      // => /zh-cn/README.md --> -->
       ],
 
       // 完整配置参数
@@ -118,8 +128,21 @@
             return text.replace(/==(.+?)==/g, '<span style="background-color:yellow;">$1</span>');
           }
         }
+      }, 
+      progress: {
+        position: "top",
+        color: "var(--theme-color,#42b983)",
+        height: "3px",
+      },
+      busuanzi: true,
+      breadcrumb: {
+        showHome: true,
+        homeText: 'Home',
+        separator: ' &rsaquo; ',
+        casing: 'capitalize',
+        linkColor: 'var(--theme-color, #42b983)',
+        size: 'normal'
       }
-      
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
@@ -141,6 +164,7 @@
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  
   <script>
     const gitalk = new Gitalk({
       clientID: 'Github Application Client ID',
@@ -155,6 +179,35 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+  <!-- 支持XMind -->
+  <script src="//cdn.jsdelivr.net/gh/AntHubTC/docsify-xmind@1.0/example/dist/index.min.js"></script> 
+  <!-- 支持阅读进度条 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script> 
+  <!-- 显示流量：疑似累赘 -->
+  <script src="https://unpkg.com/docsify-busuanzi@1.0.1/dist/docsify-busuanzi.min.js"></script>
+  <!-- 显示Terminal -->
+  <!-- 用法
+    ```terminal
+    npm run start
+    $|npm run start
+    $|warning|npm run build
+    >|info|npm run start
+     |...
+    >|error|npm run start
+    >|success|npm run start
+
+    warning|npm run build
+    ``` 
+   -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-terminal-block@1.0.3"></script>
+  <!-- 支持嵌入bilibili视频 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-bilibili@latest/bilibili.min.js"></script>
+  <!-- 增加面包屑辅助索引 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-breadcrumb@latest/dist/index.min.js"></script>
+  <!-- 支持手机UI: 有bug -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/LIGMATV/docsify-vite-coverpage@main/docsify-vite-coverpage.css"> -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
   <script>
     // 切换字体的函数
     function switchFont(fontClass) {
